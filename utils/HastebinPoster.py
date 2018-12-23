@@ -12,4 +12,4 @@ async def post(content):
                 post = await post.json()
                 return "https://hastebin.com/{}".format(post['key'])
         except:
-            raise PostCodeError('Что-то пошло не так.')
+            raise PostCodeError('Something went wrong.')

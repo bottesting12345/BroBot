@@ -41,12 +41,12 @@ yep
         """Check if my music is playing somewhere.
         """
         active_voice_clients = [x.name for x in self.bot.guilds if x.voice_client]
-        await ctx.send('В данный момент я проигрываю музыку на %s серверах.' % len(active_voice_clients))
+        await ctx.send('I'm currently playing music on s servers.' % len(active_voice_clients))
 
     @commands.command(name='sysinfo', hidden=True)
     @commands.is_owner()
     async def sysinfo(self, ctx):
-        """Системная информация.
+        """System information.
         """
 
         pid = os.getpid()
@@ -61,16 +61,16 @@ yep
         cpu_load = ', '.join([f'{x}%' for x in psutil.cpu_percent(interval=None, percpu=True)])
 
         main = f"""
-Загрузка ЦПУ (всего):
+CPU load (total):
 - `{''.join(cpu_load)}`
-Загрузка ОЗУ (всего): `{ram_load}`
+Loading RAMUz RAM (total): `{ram_load}`
 
-Имя процесса: `{process_sys_name}`
-Имя пользователя: `{process_sys_username}`
-Платформа: `{platform.platform()}`
+Process name: `{process_sys_name}`
+Username: `{process_sys_username}`
+Platform: `{platform.platform()}`
 
-Потребление ОЗУ: `{round(mem_percent_usage)}%`
-Потребление ресурсов ЦПУ: `{round(cpu_percent_usage)}%`
+Consumption of ram: `{round(mem_percent_usage)}%`
+CPU resource consumption: `{round(cpu_percent_usage)}%`
 """
 
         await ctx.send(embed=discord.Embed(

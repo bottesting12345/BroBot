@@ -54,7 +54,7 @@ async def on_ready():
             awaiting = 10
 
             messages = [f'{len(bot.guilds)} servers!',
-                        f'{len(bot.users)} of the participants!',
+                        f'{len(bot.users)} !',
                         f'{len(bot.emojis)} Emoji!',
                         f'{len([x.name for x in bot.commands if not x.hidden])} commands!',
                         f'{prefix}help']

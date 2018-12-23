@@ -28,7 +28,7 @@ class Owner(object):
         await ctx.send(':hammer_pick: And it is necessary? -_-')
         msg = await self.bot.wait_for('message', check=message_check, timeout=120.0)
 yep
-        if msg.content.lower() in ['yes', 'yea', 'yep', 'let's go already']:
+        if msg.content.lower() in ['Yes', 'Yea', 'Yep', 'let's go already']:
             await ctx.send(':white_check_mark: Well, as you wish. I am sleep goodbye!')
         else:
             return await ctx.send(':x: Bot! Normal (no) answer! I stay online.')

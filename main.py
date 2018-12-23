@@ -34,29 +34,29 @@ if __name__ == '__main__':
         try:
             bot.load_extension(extension)
         except Exception as e:
-            print(f'[!] Не удалось загрузить модуль {extension}.', file=sys.stderr)
+            print(f'[!]  Failed to load module {extension}.', file=sys.stderr)
             traceback.print_exc()
             print('------------------------')
         else:
-            print(f'[!] Модуль {extension} успешно загружен.')
+            print(f'[!] Module {extension} loaded successfully.')
 
 @bot.event
 async def on_connect():
-    await bot.change_presence(activity=discord.Game(name='загружаюсь :з'), status=discord.Status.idle)
+    await bot.change_presence(activity=discord.Game(name='Over Servers:з'), status=discord.Status.online)
 
 @bot.event
 async def on_ready():
-    print(f'[#] Подключение успешно осуществлено!\n[#] В сети: {bot.user}')
+    print(f'[#] Connection successful!\n[#] Online: {bot.user}')
 
     async def presence():
         await start_session()
         while not bot.is_closed():
             awaiting = 10
 
-            messages = [f'{len(bot.guilds)} серверов!',
-                        f'{len(bot.users)} участников!',
-                        f'{len(bot.emojis)} эмодзи!',
-                        f'{len([x.name for x in bot.commands if not x.hidden])} команд!',
+            messages = [f'{len(bot.guilds)} servers!',
+                        f'{len(bot.users)} of the participants!',
+                        f'{len(bot.emojis)} Emoji!',
+                        f'{len([x.name for x in bot.commands if not x.hidden])} commands!',
                         f'{prefix}help']
             for msg in messages:
                 if os.getenv('ACTIVITY') == 'streaming':

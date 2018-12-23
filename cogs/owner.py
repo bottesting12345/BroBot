@@ -27,18 +27,18 @@ class Owner(object):
 
         await ctx.send(':hammer_pick: And it is necessary? -_-')
         msg = await self.bot.wait_for('message', check=message_check, timeout=120.0)
-
-        if msg.content.lower() in ['да', 'ага', 'угу', 'давай уже']:
-            await ctx.send(':white_check_mark: Ну, как хочешь. Я спать, пока!')
+yep
+        if msg.content.lower() in ['yes', 'yea', 'yep', 'let's go already']:
+            await ctx.send(':white_check_mark: Well, as you wish. I am sleep goodbye!')
         else:
-            return await ctx.send(':x: Вот! Нормальный (нет) ответ! Остаюсь в сети.')
+            return await ctx.send(':x: Bot! Normal (no) answer! I stay online.')
 
         await self.bot.logout()
     
     @commands.command(name='checkvoice', aliases=['cv'], hidden=True)
     @commands.is_owner()
     async def check_voice_clients(self, ctx):
-        """Проверить, проигрывается ли где-то музыка в моем исполнении.
+        """Check if my music is playing somewhere.
         """
         active_voice_clients = [x.name for x in self.bot.guilds if x.voice_client]
         await ctx.send('В данный момент я проигрываю музыку на %s серверах.' % len(active_voice_clients))

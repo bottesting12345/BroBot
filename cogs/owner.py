@@ -11,7 +11,7 @@ from discord.ext import commands
 from contextlib import redirect_stdout
 
 class Owner(object):
-    """Набор команд для отладки и тестирования."""
+    """A set of commands for debugging and testing."""
 
     def __init__(self, bot):
         self.bot = bot
@@ -19,13 +19,13 @@ class Owner(object):
     @commands.command(name='logout', hidden=True)
     @commands.is_owner()
     async def logout(self, ctx):
-        """Деавторизовать от Discord.
+        """Deauthorize from Discord.
         """
 
         def message_check(m):
             return m.author.id == ctx.author.id
 
-        await ctx.send(':hammer_pick: А оно надо? -_-')
+        await ctx.send(':hammer_pick: And it is necessary? -_-')
         msg = await self.bot.wait_for('message', check=message_check, timeout=120.0)
 
         if msg.content.lower() in ['да', 'ага', 'угу', 'давай уже']:

@@ -18,22 +18,22 @@ from utils.NekosWrapper import (get_neko,
                                 nekos_tags)
 
 class Fun(object):
-    """Команды пользователей - Fun"""
+    """User Commands - Fun"""
     def __init__(self, bot):
         self.bot = bot
     
     @commands.group(name='emote', aliases=['emotes'])
     async def emotes(self, ctx):
-        """Эмоции и анимешные картинки <3"""
+        """Emotions and anime pictures <3"""
         if not ctx.invoked_subcommand:
             await ctx.send(f'{ctx.prefix}{ctx.command} -\nlove\nsad\njoy\nangry\nlonely')
 
     @emotes.command(name='love')
     async def love(self, ctx):
-        """Влюбленность"""
+        """Love"""
         image = 'http://images.vfl.ru/ii/1540905231/0cf06cf3/24000410.jpg'
         author = ctx.message.author.name
-        messages = [f'{author} полон любви и заботы <3']
+        messages = [f'{author} full of love and care <3']
 
         embed = discord.Embed(color=0xFF6AE5,
                               title=choice(messages))
@@ -45,11 +45,11 @@ class Fun(object):
 
     @emotes.command(name='sad')
     async def sad(self, ctx):
-        """Грусть"""
+        """sadness"""
         image = 'http://images.vfl.ru/ii/1540905169/1859d59c/24000401.jpg'
         author = ctx.message.author.name
-        messages = [f'{author} чувствует грусть :c',
-                    f'Так печально, когда {author} грустит...']
+        messages = [f'{author} feels sad :c',
+                    f'So late, when {author} sad...']
 
         embed = discord.Embed(color=0xFF6AE5,
                               title=choice(messages))
@@ -61,10 +61,10 @@ class Fun(object):
 
     @emotes.command(name='joy')
     async def joy(self, ctx):
-        """Радость"""
+        """Joy"""
         image = 'http://images.vfl.ru/ii/1540905081/27bd14ca/24000379.jpg'
         author = ctx.message.author.name
-        messages = [f'Я рада, {author} счастлив!',
+        messages = [f'I'm glad, {author} happy!',
                     f'Счастья полон {author}, это так прекрасно! :з',
                     f'{author} счастлив! Меня это радует <3']
 
